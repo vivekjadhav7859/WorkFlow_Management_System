@@ -1,14 +1,18 @@
 import Navbar from "./Components/Navbar"
+import Services from "./routes/Services"
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
 
   return (
     <>
-      <Navbar />
-      <h1 className="text-3xl font-bold flex items-center h-screen justify-center ">
-        Hello Mrs. Sahyadri Aditya Patil...😁😁😁
-      </h1>
-
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Navbar />} />
+          <Route path="/services" element={<Services />} />
+        </Routes>
+      </Router>
     </>
   )
 }

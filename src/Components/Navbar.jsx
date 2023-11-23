@@ -1,10 +1,18 @@
 import React, { useState } from 'react'
-import Button from './Button';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
+
+    const navigate = useNavigate();
+
+    const handleJoinUsClick = () => {
+        // Navigate to the '/services' route
+        navigate('/services');
+    };
     let Links = [
         { name: "Home", link: "/" },
-        { name: "Services", link: "/" },
+        { name: "Services", link: "/services" },
         { name: "About", link: "/" },
         { name: "Blog's", link: "/" },
         { name: "Contact", link: "/" },
@@ -33,12 +41,14 @@ const Nav = () => {
                             </li>
                         ))
                     }
-                    <Button>
-                        Join Us
-                    </Button>
+                    {/* <Link to="/services"> Updated Link component */}
+                    <button className='bg-indigo-600 text-white font-[Poppins] py-2 px-6 rounded md:ml-8 hover:bg-indigo-400 duration-500' onClick={handleJoinUsClick}>
+                        Join us
+                    </button>
+                    {/* </Link> */}
                 </ul>
             </div>
-        </div>
+        </div >
     )
 }
 
